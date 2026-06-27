@@ -16,6 +16,28 @@
       src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
       defer
     ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              brand: {
+                bg: "#f5f7fa",
+                foreground: "#1a1a2e",
+                border: "#e2e8f0",
+                primary: "#e8001d",
+                primaryFg: "#ffffff",
+                secondary: "#fff3f4",
+                success: "#dcfce7",
+                warning: "#fef9c3",
+                card: "#ffffff",
+              },
+            },
+          },
+        },
+      };
+    </script>
   </head>
   <body class="bg-brand-bg text-brand-foreground font-sans antialiased">
     <!-- TOPBAR -->
