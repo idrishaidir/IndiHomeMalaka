@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>IndiHome by Telkomsel</title>
-    <!-- Pastikan Anda menghubungkan output Tailwind CSS Anda di sini -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Skrip di atas hanya untuk demo cepat, hapus dan gunakan file CSS build Anda di production -->
     <link rel="stylesheet" href="style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
+
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
     <script
       src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
       defer
@@ -39,8 +40,9 @@
       };
     </script>
   </head>
-  <body class="bg-brand-bg text-brand-foreground font-sans antialiased">
-    <!-- TOPBAR -->
+  <body
+    class="bg-brand-bg text-brand-foreground font-sans antialiased overflow-x-hidden"
+  >
     <header
       class="bg-brand-primary text-brand-primaryFg h-16 flex items-center justify-between px-6 md:px-20 sticky top-0 z-50 shadow-md"
     >
@@ -63,6 +65,7 @@
         </a>
         <a
           href="#"
+          onclick="bukaMyTelkomsel(event)"
           class="flex items-center gap-2 hover:opacity-80 transition-opacity"
         >
           <iconify-icon
@@ -74,11 +77,9 @@
       </nav>
     </header>
 
-    <!-- HERO SECTION -->
     <section
       class="relative bg-gradient-to-br from-[#c0001a] via-[#e8001d] to-[#ff4444] text-brand-primaryFg px-6 py-16 md:px-20 md:py-24 flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20 overflow-hidden"
     >
-      <!-- Dekorasi -->
       <div
         class="absolute -top-16 -right-16 w-96 h-96 rounded-full bg-white/5 pointer-events-none"
       ></div>
@@ -86,7 +87,7 @@
         class="absolute -bottom-20 left-1/3 w-72 h-72 rounded-full bg-white/5 pointer-events-none"
       ></div>
 
-      <div class="flex-1 relative z-10">
+      <div class="flex-1 relative z-10" data-aos="fade-right">
         <p class="text-sm font-bold tracking-widest uppercase opacity-80 mb-4">
           Layanan Internet Terbaik
         </p>
@@ -103,17 +104,19 @@
           untuk rumah dan keluarga Anda di Jakarta Utara.
         </p>
         <div class="flex flex-wrap gap-4 items-center">
-          <button
+          <a
+            href="#daftar"
             class="bg-brand-primaryFg text-brand-primary text-sm font-bold px-8 py-3.5 rounded-full flex items-center gap-2 hover:bg-gray-100 transition-colors"
           >
             <iconify-icon icon="lucide:zap" class="text-xl"></iconify-icon>
             Daftar Sekarang
-          </button>
-          <button
+          </a>
+          <a
+            href="#paket_internet"
             class="border-2 border-white/70 text-brand-primaryFg text-sm font-bold px-8 py-3.5 rounded-full hover:bg-white/10 transition-colors"
           >
             Lihat Paket
-          </button>
+          </a>
         </div>
 
         <div
@@ -134,7 +137,10 @@
         </div>
       </div>
 
-      <div class="flex-1 w-full flex justify-center lg:justify-end z-10">
+      <div
+        class="flex-1 w-full flex justify-center lg:justify-end z-10"
+        data-aos="fade-left"
+      >
         <img
           class="w-full max-w-md lg:max-w-[420px] rounded-2xl object-cover shadow-2xl"
           src="https://storage.googleapis.com/banani-generated-images/generated-images/4c62de65-f026-4a7b-999d-2387f61c9b36.jpg"
@@ -143,9 +149,11 @@
       </div>
     </section>
 
-    <!-- PAKET SECTION -->
-    <section class="bg-brand-card px-6 py-16 md:px-20 md:py-20">
-      <div class="mb-12">
+    <section
+      class="bg-brand-card px-6 py-16 md:px-20 md:py-20 overflow-hidden"
+      id="paket_internet"
+    >
+      <div class="mb-12" data-aos="fade-up">
         <p
           class="text-xs font-bold tracking-widest uppercase text-brand-primary mb-2"
         >
@@ -161,8 +169,12 @@
 
       <div class="grid grid-cols-2 lg:grid-cols-4 xl:grid-cols-7 gap-4">
         <!-- Paket 20 -->
-        <div
-          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between"
+        <a
+          href="https://wa.me/6282120361559?text=Halo%20admin%20IndiHome%2C%20saya%20tertarik%20untuk%20mendaftar%20paket%20internet%20kecepatan%20*20%20Mbps*.%20Boleh%20minta%20info%20lebih%20lanjut%3F"
+          target="_blank"
+          data-aos="fade-up"
+          data-aos-delay="0"
+          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between block"
         >
           <div>
             <div
@@ -182,10 +194,15 @@
           >
             <iconify-icon icon="lucide:phone"></iconify-icon> Daftar
           </div>
-        </div>
+        </a>
+
         <!-- Paket 50 -->
-        <div
-          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between"
+        <a
+          href="https://wa.me/6282120361559?text=Halo%20admin%20IndiHome%2C%20saya%20tertarik%20untuk%20mendaftar%20paket%20internet%20kecepatan%20*50%20Mbps*.%20Boleh%20minta%20info%20lebih%20lanjut%3F"
+          target="_blank"
+          data-aos="fade-up"
+          data-aos-delay="100"
+          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between block"
         >
           <div>
             <div
@@ -205,10 +222,15 @@
           >
             <iconify-icon icon="lucide:phone"></iconify-icon> Daftar
           </div>
-        </div>
+        </a>
+
         <!-- Paket 75 -->
-        <div
-          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between"
+        <a
+          href="https://wa.me/6282120361559?text=Halo%20admin%20IndiHome%2C%20saya%20tertarik%20untuk%20mendaftar%20paket%20internet%20kecepatan%20*75%20Mbps*.%20Boleh%20minta%20info%20lebih%20lanjut%3F"
+          target="_blank"
+          data-aos="fade-up"
+          data-aos-delay="200"
+          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between block"
         >
           <div>
             <div
@@ -228,10 +250,15 @@
           >
             <iconify-icon icon="lucide:phone"></iconify-icon> Daftar
           </div>
-        </div>
+        </a>
+
         <!-- Paket 100 (Terpopuler) -->
-        <div
-          class="bg-brand-secondary border-2 border-brand-primary rounded-xl p-6 text-center relative cursor-pointer shadow-sm flex flex-col justify-between"
+        <a
+          href="https://wa.me/6282120361559?text=Halo%20admin%20IndiHome%2C%20saya%20tertarik%20untuk%20mendaftar%20paket%20internet%20kecepatan%20*100%20Mbps*.%20Boleh%20minta%20info%20lebih%20lanjut%3F"
+          target="_blank"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          class="bg-brand-secondary border-2 border-brand-primary rounded-xl p-6 text-center relative cursor-pointer shadow-sm flex flex-col justify-between transform hover:-translate-y-1 transition-transform block"
         >
           <span
             class="absolute -top-3 left-1/2 -translate-x-1/2 bg-brand-primary text-brand-primaryFg text-[11px] font-bold px-3 py-1 rounded-full whitespace-nowrap"
@@ -256,10 +283,15 @@
           >
             <iconify-icon icon="lucide:phone"></iconify-icon> Daftar
           </div>
-        </div>
+        </a>
+
         <!-- Paket 150 -->
-        <div
-          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between"
+        <a
+          href="https://wa.me/6282120361559?text=Halo%20admin%20IndiHome%2C%20saya%20tertarik%20untuk%20mendaftar%20paket%20internet%20kecepatan%20*150%20Mbps*.%20Boleh%20minta%20info%20lebih%20lanjut%3F"
+          target="_blank"
+          data-aos="fade-up"
+          data-aos-delay="400"
+          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between block"
         >
           <div>
             <div
@@ -279,10 +311,15 @@
           >
             <iconify-icon icon="lucide:phone"></iconify-icon> Daftar
           </div>
-        </div>
+        </a>
+
         <!-- Paket 200 -->
-        <div
-          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between"
+        <a
+          href="https://wa.me/6282120361559?text=Halo%20admin%20IndiHome%2C%20saya%20tertarik%20untuk%20mendaftar%20paket%20internet%20kecepatan%20*200%20Mbps*.%20Boleh%20minta%20info%20lebih%20lanjut%3F"
+          target="_blank"
+          data-aos="fade-up"
+          data-aos-delay="500"
+          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between block"
         >
           <div>
             <div
@@ -302,10 +339,15 @@
           >
             <iconify-icon icon="lucide:phone"></iconify-icon> Daftar
           </div>
-        </div>
+        </a>
+
         <!-- Paket 300 -->
-        <div
-          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between"
+        <a
+          href="https://wa.me/6282120361559?text=Halo%20admin%20IndiHome%2C%20saya%20tertarik%20untuk%20mendaftar%20paket%20internet%20kecepatan%20*300%20Mbps*.%20Boleh%20minta%20info%20lebih%20lanjut%3F"
+          target="_blank"
+          data-aos="fade-up"
+          data-aos-delay="600"
+          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl p-6 text-center cursor-pointer hover:border-brand-primary transition-colors flex flex-col justify-between block"
         >
           <div>
             <div
@@ -325,13 +367,12 @@
           >
             <iconify-icon icon="lucide:phone"></iconify-icon> Daftar
           </div>
-        </div>
+        </a>
       </div>
     </section>
 
-    <!-- BROSUR SECTION -->
-    <section class="bg-brand-bg px-6 py-16 md:px-20 md:py-20">
-      <div class="mb-12">
+    <section class="bg-brand-bg px-6 py-16 md:px-20 md:py-20 overflow-hidden">
+      <div class="mb-12" data-aos="fade-up">
         <p
           class="text-xs font-bold tracking-widest uppercase text-brand-primary mb-2"
         >
@@ -347,8 +388,9 @@
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Brosur 1 -->
         <div
+          data-aos="fade-up"
+          data-aos-delay="0"
           class="bg-brand-card border-[1.5px] border-brand-border rounded-xl overflow-hidden cursor-pointer hover:shadow-lg transition-shadow relative"
         >
           <span
@@ -359,8 +401,8 @@
             class="w-full aspect-[3/4] bg-brand-muted flex items-center justify-center overflow-hidden"
           >
             <img
-              class="w-full h-full object-cover"
-              src="https://storage.googleapis.com/banani-generated-images/generated-images/ac365695-ae5a-4c74-a66a-f836f1608f6e.jpg"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              src="image/brosur1.jpeg"
               alt="Brosur 1"
             />
           </div>
@@ -369,10 +411,10 @@
           >
             <div>
               <div class="text-sm font-bold text-brand-foreground">
-                Paket Internet Rumah
+                Promo Pasang Baru
               </div>
               <div class="text-xs text-brand-mutedFg mt-1">
-                IndiHome by Telkomsel
+                Hanya Rp99.000,00
               </div>
             </div>
             <button
@@ -383,8 +425,9 @@
           </div>
         </div>
 
-        <!-- Brosur 2 -->
         <div
+          data-aos="fade-up"
+          data-aos-delay="150"
           class="bg-brand-card border-[1.5px] border-brand-border rounded-xl overflow-hidden cursor-pointer hover:shadow-lg transition-shadow relative"
         >
           <span
@@ -395,8 +438,8 @@
             class="w-full aspect-[3/4] bg-brand-muted flex items-center justify-center overflow-hidden"
           >
             <img
-              class="w-full h-full object-cover"
-              src="https://storage.googleapis.com/banani-generated-images/generated-images/42185c43-83b1-4ed7-829e-578416c465eb.jpg"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              src="image/brosur2.jpeg"
               alt="Brosur 2"
             />
           </div>
@@ -405,9 +448,9 @@
           >
             <div>
               <div class="text-sm font-bold text-brand-foreground">
-                Promo Kecepatan Pilihan
+                Promo Max Stream
               </div>
-              <div class="text-xs text-brand-mutedFg mt-1">20 – 300 Mbps</div>
+              <div class="text-xs text-brand-mutedFg mt-1">100 – 500 Mbps</div>
             </div>
             <button
               class="flex items-center gap-1.5 bg-brand-primary text-brand-primaryFg text-xs font-semibold px-3 py-2 rounded-md hover:bg-red-700 transition-colors"
@@ -417,8 +460,9 @@
           </div>
         </div>
 
-        <!-- Brosur 3 -->
         <div
+          data-aos="fade-up"
+          data-aos-delay="300"
           class="bg-brand-card border-[1.5px] border-brand-border rounded-xl overflow-hidden cursor-pointer hover:shadow-lg transition-shadow relative"
         >
           <span
@@ -429,8 +473,8 @@
             class="w-full aspect-[3/4] bg-brand-muted flex items-center justify-center overflow-hidden"
           >
             <img
-              class="w-full h-full object-cover"
-              src="https://storage.googleapis.com/banani-generated-images/generated-images/df184fae-1c8c-4d4e-8986-ea602eb79a9b.jpg"
+              class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+              src="image/brosur3.jpeg"
               alt="Brosur 3"
             />
           </div>
@@ -439,9 +483,11 @@
           >
             <div>
               <div class="text-sm font-bold text-brand-foreground">
-                Cara Daftar & Area
+                Lebih Cepat
               </div>
-              <div class="text-xs text-brand-mutedFg mt-1">Jakarta Utara</div>
+              <div class="text-xs text-brand-mutedFg mt-1">
+                Upgrade Internet Anda
+              </div>
             </div>
             <button
               class="flex items-center gap-1.5 bg-brand-primary text-brand-primaryFg text-xs font-semibold px-3 py-2 rounded-md hover:bg-red-700 transition-colors"
@@ -453,11 +499,10 @@
       </div>
     </section>
 
-    <!-- AREA LAYANAN SECTION -->
     <section
-      class="bg-gradient-to-br from-[#e8001d] to-[#c0001a] text-brand-primaryFg px-6 py-16 md:px-20 md:py-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16"
+      class="bg-gradient-to-br from-[#e8001d] to-[#c0001a] text-brand-primaryFg px-6 py-16 md:px-20 md:py-16 flex flex-col lg:flex-row items-center gap-12 lg:gap-16 overflow-hidden"
     >
-      <div class="flex-1">
+      <div class="flex-1" data-aos="fade-right">
         <p
           class="text-xs font-bold tracking-widest uppercase text-white/70 mb-2"
         >
@@ -478,7 +523,11 @@
           Jakarta Utara, DKI Jakarta
         </div>
       </div>
-      <div class="flex-none w-full lg:w-[480px]">
+      <div
+        class="flex-none w-full lg:w-[480px]"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
         <img
           class="w-full h-[280px] object-cover rounded-xl shadow-lg"
           src="https://storage.googleapis.com/banani-generated-images/generated-images/a616e94c-ad88-4798-99a2-b72c771191ea.jpg"
@@ -487,9 +536,8 @@
       </div>
     </section>
 
-    <!-- KEUNGGULAN SECTION -->
-    <section class="bg-brand-bg px-6 py-16 md:px-20 md:py-20">
-      <div class="mb-12 text-center md:text-left">
+    <section class="bg-brand-bg px-6 py-16 md:px-20 md:py-20 overflow-hidden">
+      <div class="mb-12 text-center md:text-left" data-aos="fade-up">
         <p
           class="text-xs font-bold tracking-widest uppercase text-brand-primary mb-2"
         >
@@ -505,7 +553,9 @@
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
         <div
-          class="bg-brand-card rounded-xl p-8 flex flex-col sm:flex-row gap-5 items-start shadow-sm border border-brand-border/50"
+          data-aos="fade-up"
+          data-aos-delay="0"
+          class="bg-brand-card rounded-xl p-8 flex flex-col sm:flex-row gap-5 items-start shadow-sm border border-brand-border/50 hover:shadow-md transition-shadow"
         >
           <div
             class="w-14 h-14 bg-brand-secondary rounded-xl flex items-center justify-center shrink-0"
@@ -526,7 +576,9 @@
           </div>
         </div>
         <div
-          class="bg-brand-card rounded-xl p-8 flex flex-col sm:flex-row gap-5 items-start shadow-sm border border-brand-border/50"
+          data-aos="fade-up"
+          data-aos-delay="150"
+          class="bg-brand-card rounded-xl p-8 flex flex-col sm:flex-row gap-5 items-start shadow-sm border border-brand-border/50 hover:shadow-md transition-shadow"
         >
           <div
             class="w-14 h-14 bg-brand-secondary rounded-xl flex items-center justify-center shrink-0"
@@ -547,7 +599,9 @@
           </div>
         </div>
         <div
-          class="bg-brand-card rounded-xl p-8 flex flex-col sm:flex-row gap-5 items-start shadow-sm border border-brand-border/50"
+          data-aos="fade-up"
+          data-aos-delay="300"
+          class="bg-brand-card rounded-xl p-8 flex flex-col sm:flex-row gap-5 items-start shadow-sm border border-brand-border/50 hover:shadow-md transition-shadow"
         >
           <div
             class="w-14 h-14 bg-brand-secondary rounded-xl flex items-center justify-center shrink-0"
@@ -570,11 +624,11 @@
       </div>
     </section>
 
-    <!-- REGISTRASI SECTION -->
     <section
-      class="bg-brand-card px-6 py-16 md:px-20 md:py-20 border-t border-brand-border/50"
+      id="daftar"
+      class="bg-brand-card px-6 py-16 md:px-20 md:py-20 border-t border-brand-border/50 overflow-hidden"
     >
-      <div class="mb-12">
+      <div class="mb-12" data-aos="fade-up">
         <p
           class="text-xs font-bold tracking-widest uppercase text-brand-primary mb-2"
         >
@@ -589,8 +643,7 @@
       </div>
 
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-        <!-- Langkah-langkah -->
-        <div class="space-y-6">
+        <div class="space-y-6" data-aos="fade-right">
           <div class="flex items-start gap-4">
             <div
               class="w-10 h-10 bg-brand-primary text-brand-primaryFg rounded-full flex items-center justify-center text-base font-extrabold shrink-0"
@@ -662,7 +715,7 @@
             </div>
             <div>
               <h4 class="text-[15px] font-bold text-brand-foreground mb-1">
-                Share Lok Rumah
+                Share Lokasi Rumah
               </h4>
               <p class="text-[13px] text-brand-mutedFg leading-relaxed">
                 Bagikan lokasi rumah Anda via WhatsApp/Google Maps untuk
@@ -672,8 +725,8 @@
           </div>
         </div>
 
-        <!-- CTA Kontak Box -->
         <div
+          data-aos="fade-left"
           class="bg-brand-secondary border-[1.5px] border-[#ffc9cf] rounded-xl p-8 lg:p-10"
         >
           <h3 class="text-2xl font-extrabold text-brand-foreground mb-3">
@@ -685,7 +738,8 @@
           </p>
 
           <a
-            href="#"
+            href="https://wa.me/6282120361559?text=Halo%20kak%20Rizki%2C%20saya%20dapat%20nomornya%20dari%20website.%20Saya%20ingin%20bertanya%20seputar%20pemasangan%20baru%20IndiHome%20di%20area%20Jakarta%20Utara.%20Boleh%20minta%20informasi%20lebih%20lanjut%20terkait%20promo%20saat%20ini%3F"
+            target="_blank"
             class="flex items-center gap-3 p-3.5 bg-brand-card rounded-md mb-3 hover:shadow-md transition-shadow"
           >
             <div
@@ -708,7 +762,8 @@
           </a>
 
           <a
-            href="#"
+            href="https://wa.me/6281281767600?text=Halo%20kak%20Erni%2C%20saya%20dapat%20nomornya%20dari%20website.%20Saya%20ingin%20bertanya%20seputar%20pemasangan%20baru%20IndiHome%20di%20area%20Jakarta%20Utara.%20Boleh%20minta%20informasi%20lebih%20lanjut%20terkait%20promo%20saat%20ini%3F"
+            target="_blank"
             class="flex items-center gap-3 p-3.5 bg-brand-card rounded-md mb-3 hover:shadow-md transition-shadow"
           >
             <div
@@ -731,7 +786,7 @@
           </a>
 
           <a
-            href="mailto:kikiyoo27@gmail.com"
+            href="mailto:kikiyoo27@gmail.com?subject=Tanya%20Seputar%20Layanan%20IndiHome%20Jakarta%20Utara&body=Halo%20tim%20IndiHome%2C%20saya%20mengunjungi%20website%20Anda%20dan%20ingin%20bertanya%20mengenai%20layanan%20internet%20serta%20promo%20yang%20tersedia%20saat%20ini.%20Terima%20kasih."
             class="flex items-center gap-3 p-3.5 bg-brand-card rounded-md hover:shadow-md transition-shadow"
           >
             <div
@@ -750,8 +805,8 @@
       </div>
     </section>
 
-    <!-- GANGGUAN BAR -->
     <section
+      data-aos="fade-up"
       class="bg-brand-muted border-t border-brand-border px-6 py-10 md:px-20 flex flex-col md:flex-row items-center gap-6 text-center md:text-left"
     >
       <div
@@ -774,28 +829,30 @@
         </p>
       </div>
       <div class="flex flex-wrap justify-center gap-3 shrink-0">
-        <button
-          class="bg-brand-primary text-brand-primaryFg text-sm font-semibold px-5 py-3 rounded-full flex items-center gap-2 hover:bg-red-700 transition-colors"
+        <a
+          href="tel:188"
+          class="bg-brand-primary text-brand-primaryFg text-sm font-semibold px-5 py-3 rounded-full flex items-center gap-2 hover:bg-red-700 transition-colors inline-flex"
         >
           <iconify-icon
             icon="lucide:phone-call"
             class="text-base"
           ></iconify-icon>
           Hubungi 188
-        </button>
-        <button
-          class="bg-brand-card text-brand-foreground border-[1.5px] border-brand-border text-sm font-semibold px-5 py-3 rounded-full flex items-center gap-2 hover:bg-gray-50 transition-colors"
+        </a>
+        <a
+          href="#"
+          onclick="bukaMyTelkomsel(event)"
+          class="bg-brand-card text-brand-foreground border-[1.5px] border-brand-border text-sm font-semibold px-5 py-3 rounded-full flex items-center gap-2 hover:bg-gray-50 transition-colors inline-flex cursor-pointer"
         >
           <iconify-icon
             icon="lucide:smartphone"
             class="text-base"
           ></iconify-icon>
           My Telkomsel
-        </button>
+        </a>
       </div>
     </section>
 
-    <!-- FOOTER -->
     <footer
       class="bg-brand-foreground text-white/85 px-6 py-10 md:px-20 flex flex-col md:flex-row items-center justify-between gap-6 text-[13px]"
     >
@@ -810,5 +867,35 @@
         © 2026 IndiHome by Telkomsel. Melayani dengan Sepenuh Hati.
       </div>
     </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800, // Durasi animasi (dalam ms)
+        once: true, // Animasi berjalan sekali saja ketika di-scroll
+        offset: 100, // Jarak px elemen masuk viewport sebelum animasi dimulai
+      });
+
+      function bukaMyTelkomsel(e) {
+        e.preventDefault(); // Mencegah layar ter-scroll ke atas saat link '#' diklik
+
+        var isAndroid = /android/i.test(navigator.userAgent);
+        var isIOS = /ipad|iphone|ipod/i.test(navigator.userAgent);
+
+        if (isAndroid) {
+          // Fitur bawaan Android (Intent)
+          // Jika aplikasi com.telkomsel.telkomselcm ada, akan dibuka. Jika tidak, ke PlayStore.
+          window.location.href =
+            "intent://#Intent;package=com.telkomsel.telkomselcm;end;";
+        } else if (isIOS) {
+          // Arahkan pengguna iPhone ke App Store Apple
+          window.location.href =
+            "https://apps.apple.com/id/app/mytelkomsel/id625831872";
+        } else {
+          // Arahkan pengguna PC/Laptop ke versi Web
+          window.open("https://my.telkomsel.com/", "_blank");
+        }
+      }
+    </script>
   </body>
 </html>
