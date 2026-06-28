@@ -370,7 +370,6 @@
         </a>
       </div>
     </section>
-
     <section class="bg-brand-bg px-6 py-16 md:px-20 md:py-20 overflow-hidden">
       <div class="mb-12" data-aos="fade-up">
         <p
@@ -391,14 +390,15 @@
         <div
           data-aos="fade-up"
           data-aos-delay="0"
-          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl overflow-hidden cursor-pointer hover:shadow-lg transition-shadow relative"
+          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow relative"
         >
           <span
-            class="absolute top-3 left-3 bg-brand-primary text-brand-primaryFg text-[11px] font-bold px-3 py-1 rounded-full z-10"
+            class="absolute top-3 left-3 bg-brand-primary text-brand-primaryFg text-[11px] font-bold px-3 py-1 rounded-full z-10 pointer-events-none"
             >Brosur 1</span
           >
           <div
-            class="w-full aspect-[3/4] bg-brand-muted flex items-center justify-center overflow-hidden"
+            class="w-full aspect-[3/4] bg-brand-muted flex items-center justify-center overflow-hidden cursor-pointer"
+            onclick="bukaLightbox('image/brosur1.jpeg')"
           >
             <img
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -417,25 +417,28 @@
                 Hanya Rp99.000,00
               </div>
             </div>
-            <button
+            <a
+              href="image/brosur1.jpeg"
+              download="brosur1_indihome.jpeg"
               class="flex items-center gap-1.5 bg-brand-primary text-brand-primaryFg text-xs font-semibold px-3 py-2 rounded-md hover:bg-red-700 transition-colors"
             >
               <iconify-icon icon="lucide:download"></iconify-icon> Unduh
-            </button>
+            </a>
           </div>
         </div>
 
         <div
           data-aos="fade-up"
           data-aos-delay="150"
-          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl overflow-hidden cursor-pointer hover:shadow-lg transition-shadow relative"
+          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow relative"
         >
           <span
-            class="absolute top-3 left-3 bg-brand-primary text-brand-primaryFg text-[11px] font-bold px-3 py-1 rounded-full z-10"
+            class="absolute top-3 left-3 bg-brand-primary text-brand-primaryFg text-[11px] font-bold px-3 py-1 rounded-full z-10 pointer-events-none"
             >Brosur 2</span
           >
           <div
-            class="w-full aspect-[3/4] bg-brand-muted flex items-center justify-center overflow-hidden"
+            class="w-full aspect-[3/4] bg-brand-muted flex items-center justify-center overflow-hidden cursor-pointer"
+            onclick="bukaLightbox('image/brosur2.jpeg')"
           >
             <img
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -452,25 +455,28 @@
               </div>
               <div class="text-xs text-brand-mutedFg mt-1">100 – 500 Mbps</div>
             </div>
-            <button
+            <a
+              href="image/brosur2.jpeg"
+              download="brosur2_indihome.jpeg"
               class="flex items-center gap-1.5 bg-brand-primary text-brand-primaryFg text-xs font-semibold px-3 py-2 rounded-md hover:bg-red-700 transition-colors"
             >
               <iconify-icon icon="lucide:download"></iconify-icon> Unduh
-            </button>
+            </a>
           </div>
         </div>
 
         <div
           data-aos="fade-up"
           data-aos-delay="300"
-          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl overflow-hidden cursor-pointer hover:shadow-lg transition-shadow relative"
+          class="bg-brand-card border-[1.5px] border-brand-border rounded-xl overflow-hidden hover:shadow-lg transition-shadow relative"
         >
           <span
-            class="absolute top-3 left-3 bg-brand-primary text-brand-primaryFg text-[11px] font-bold px-3 py-1 rounded-full z-10"
+            class="absolute top-3 left-3 bg-brand-primary text-brand-primaryFg text-[11px] font-bold px-3 py-1 rounded-full z-10 pointer-events-none"
             >Brosur 3</span
           >
           <div
-            class="w-full aspect-[3/4] bg-brand-muted flex items-center justify-center overflow-hidden"
+            class="w-full aspect-[3/4] bg-brand-muted flex items-center justify-center overflow-hidden cursor-pointer"
+            onclick="bukaLightbox('image/brosur3.jpeg')"
           >
             <img
               class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
@@ -489,11 +495,13 @@
                 Upgrade Internet Anda
               </div>
             </div>
-            <button
+            <a
+              href="image/brosur3.jpeg"
+              download="brosur3_indihome.jpeg"
               class="flex items-center gap-1.5 bg-brand-primary text-brand-primaryFg text-xs font-semibold px-3 py-2 rounded-md hover:bg-red-700 transition-colors"
             >
               <iconify-icon icon="lucide:download"></iconify-icon> Unduh
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -853,6 +861,26 @@
       </div>
     </section>
 
+    <div
+      id="lightbox"
+      class="fixed inset-0 z-[100] hidden flex-col items-center justify-center bg-black/80 backdrop-blur-sm opacity-0 transition-opacity duration-300"
+    >
+      <div class="relative w-full max-w-4xl px-4 flex flex-col items-center">
+        <button
+          onclick="tutupLightbox()"
+          class="absolute top-[-50px] right-4 md:right-0 text-white hover:text-brand-primary transition-colors focus:outline-none"
+        >
+          <iconify-icon icon="lucide:x" class="text-4xl"></iconify-icon>
+        </button>
+        <img
+          id="lightbox-img"
+          src=""
+          alt="Brosur Pop-up"
+          class="max-h-[85vh] object-contain rounded-lg shadow-2xl transform scale-95 transition-transform duration-300"
+        />
+      </div>
+    </div>
+
     <footer
       class="bg-brand-foreground text-white/85 px-6 py-10 md:px-20 flex flex-col md:flex-row items-center justify-between gap-6 text-[13px]"
     >
@@ -896,6 +924,51 @@
           window.open("https://my.telkomsel.com/", "_blank");
         }
       }
+
+      // ---- FUNGSI LIGHTBOX BROSUR ----
+      function bukaLightbox(imageSrc) {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        // Ganti source gambar dengan yang diklik
+        lightboxImg.src = imageSrc;
+
+        // Tampilkan modal (hapus class hidden)
+        lightbox.classList.remove("hidden");
+        lightbox.classList.add("flex");
+
+        // Berikan jeda sejenak untuk memicu animasi transisi (fade-in & zoom)
+        setTimeout(() => {
+          lightbox.classList.remove("opacity-0");
+          lightboxImg.classList.remove("scale-95");
+          lightboxImg.classList.add("scale-100");
+        }, 10);
+      }
+
+      function tutupLightbox() {
+        const lightbox = document.getElementById("lightbox");
+        const lightboxImg = document.getElementById("lightbox-img");
+
+        // Jalankan animasi keluar (fade-out & zoom-out)
+        lightbox.classList.add("opacity-0");
+        lightboxImg.classList.remove("scale-100");
+        lightboxImg.classList.add("scale-95");
+
+        // Sembunyikan modal setelah animasi selesai (300ms)
+        setTimeout(() => {
+          lightbox.classList.add("hidden");
+          lightbox.classList.remove("flex");
+        }, 300);
+      }
+
+      // Menutup pop-up jika area luar (background gelap) diklik
+      document
+        .getElementById("lightbox")
+        .addEventListener("click", function (e) {
+          if (e.target === this) {
+            tutupLightbox();
+          }
+        });
     </script>
   </body>
 </html>
